@@ -1,0 +1,37 @@
+Spring
+Spring Boot
+Drop wizard
+vertx(Reactive Java Framework)
+Axon Framework Axon Server framework (CQRS) design pattern
+Camunda, Activiti bpm, drools ? event chroeography, command orchestration
+Spring Integration 
+Spring MVC
+JPA ORM 
+Spring Web Flux -> Mono and Flux(Project Reactor)
+
+Vertx
+Async, Observable, Flowable, Future Future Complete
+pub sub, re, resp, point to point
+
+
+Front End
+
+Angular , Angular Apollo module --> graphql 
+React and Redux
+Ember
+knockout
+Vuejs
+Aurelia
+
+Microservices/REST API
+
+Squiggly
+RSQL
+Graphql
+
+
+
+
+
+
+
