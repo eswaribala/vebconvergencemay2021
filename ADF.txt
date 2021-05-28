@@ -1,0 +1,71 @@
+use case
+Recruitment Process Automation
+End users
+HR, Finance, LOB,Training (external), Background Verification(External)
+
+development concers
+Spring AOP
+exception handling
+logging
+secutiry
+transaction
+performance
+unit testing
+
+Operational Concerns
+plan to delivery
+JIRA
+Azure
+Jenkins
+git,bitbucket,svn, zeplin
+maven,gradle, 
+junit,mockito, cuccumber, protractor,karma, enzyme
+
+
+
+platform of choice
+window,android,ios,linux, mac
+hybrid application
+
+xamarin,cordova(web view),
+
+
+ADF
+ML Deep learning algo--> convolution algo multineural algo, 
+Imaging devices
+anaconda with python 
+
+
+tech dotnet, VB
+cost
+security
+customization
+learning curve
+scalability
+high 
+
+Choice 1
+AA
+BP
+UIPath
+
+Choice 2
+
+Java knowledge
+
+Drools JBPM
+Activiti BPM
+Camunda BPM (choose)
+
+DB Concerns
+Transaction level isolation
+replica sets
+cluster
+cloud
+fixed structure
+
+oracle,db2,postgres, mysql
+
+cost postgres(json), oracle
+
+
