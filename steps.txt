@@ -1,0 +1,42 @@
+Step1: vault server --config=vault.conf
+
+Only for first time
+Step 2: set VAULT_ADDR=http://localhost:8200
+Step 3: set VAULT_TOKEN=s.ENnNBQXDuDwzKOwQiREbW3PK
+Step 4: vault secrets enable -path=secret/ kv
+
+
+
+Alternative
+from step 4
+vault secrets enable database
+
+Step 5
+
+vault write database/config/vaultdb  plugin_name=postgresql-database-plugin allowed_roles="my-role" connection_url="postgresql://{{username}}:{{password}}@localhost:5432/vaultdb?sslmode=disable" username="postgres" password="postgres"
+
+
+Step 6
+
+vault write database/roles/my-role db_name=vaultdb  creation_statements="CREATE ROLE \"{{name}}\" WITH LOGIN PASSWORD  '{{password}}' VALID UNTIL '{{expiration}}';  GRANT SELECT ON ALL TABLES IN SCHEMA public TO \"{{name}}\";"   default_ttl="1h"  max_ttl="24h"
+
+Step 7
+vault read database/creds/my-role
+-----------------------------------------------------------------
+Template
+ vault write database/config/my-postgresql-database \
+    plugin_name=postgresql-database-plugin \
+    allowed_roles="my-role" \
+    connection_url="postgresql://{{username}}:{{password}}@localhost:5432/" \
+    username="postgres" \
+    password="postgres"
+
+
+vault write database/roles/my-role \
+    db_name=vaultdb \
+    creation_statements="CREATE ROLE \"{{name}}\" WITH LOGIN PASSWORD '{{password}}' VALID UNTIL '{{expiration}}'; \
+        GRANT SELECT ON ALL TABLES IN SCHEMA public TO \"{{name}}\";" \
+    default_ttl="1h" \
+    max_ttl="24h"
+------------------------------------------------------------------
+
