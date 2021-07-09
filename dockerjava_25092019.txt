@@ -1,0 +1,740 @@
+wsl installation
+sudo apt update
+sudo apt install wsl
+---------------------------------------------------------------------
+Step1
+cf login -a api.run.pivotal.io
+
+step2
+
+cf push routename -p <jar>
+        ref name   
+cf push globalins-cf -p <jar>
+
+cf  push uploaddoceswari-cf -p <jar>
+step3
+connect app to db service
+
+step 4
+restage
+
+
+
+-------------------------------------------------------------
+run the container
+
+step 0:          ext  int  
+docker run -d -p 9411:9411 openzipkin/zipkin
+
+docker pull mongo
+
+docker run -d -p 27017:27017 mongo
+
+docker run -d -h 192.168.99.100 -p 8761:8761 eurekaserver:latest  
+
+docker run -d -h 192.168.99.100 -p 8888:8888 configserver:latest  
+
+docker run -d -h 192.168.99.100 -p 8888:8888 -e SPRING_CLOUD_CONFIG_SERVER_GIT_URI=https://github.com/eswaribala/rps_test_2019.git configserver:latest 
+
+docker run --rm --cap-add=IPC_LOCK -e VAULT_ADDR=http://192.168.99.100:8200 -h 192.168.99.100 -p 8200:8200 -d --name=dev-vault vault:1.2.2  
+
+docker run --rm --cap-add=IPC_LOCK -e 
+VAULT_ADDR=http://localhost:8200 
+-p 8200:8200 -d --name=dev-vault vault:1.2.2  
+
+
+
+docker logs dev-vault
+get secret key
+
+http://192.168.99.100:8200/ui
+set k,v
+
+docker run -d --hostname my-rabbit --name some-rabbit -e RABBITMQ_DEFAULT_USER=guest -e RABBITMQ_DEFAULT_PASS=guest rabbitmq:3-management
+
+docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+docker pull oscarfonts/h2
+
+step 1 :
+
+
+
+docker run --name pwc-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=demodb -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -d mysql
+
+docker run --name boa-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=boajunecustomerdb -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -d mysql
+
+
+docker run --name boa-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=boainterdevcustomerdb -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -d mysql
+
+docker run --name virtusa-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=virtusacustomerdb -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -d mysql
+
+docker run --name data-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=datamaticsclaimdb -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -d mysql
+
+docker run --name virtusa-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=virtusacustomerdb -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -d mysql
+
+docker run --name virtusa-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=virtusausappointmentdb -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -d mysql
+
+docker run --name virtusa-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=
+virtusauscustomerdevdb -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -d mysql
+
+                   
+docker run --name boa-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=
+boaqacustomerdb -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass 
+-d mysql
+
+
+
+docker run --name cgi-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=
+boainterdevcustomerdb -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass 
+-d mysql
+
+
+
+
+docker run  -e 'ACCEPT_EULA=Y'  --name dt-mssql -e SA_PASSWORD=password -d microsoft/mssql-server-linux
+
+
+
+
+docker container ls -a
+
+docker run --name rps-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=rpsdb -e MYSQL_USER=rps_user -e MYSQL_PASSWORD=rps_pass -d mysql
+
+docker run --name boa-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=boamumbaidb -e MYSQL_USER=boa_user -e MYSQL_PASSWORD=boa_pass -d mysql
+
+
+docker run --name es-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=escustomerdb -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -d mysql
+
+
+docker run --name boa-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=boaqacustomerdb -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -d mysql
+
+docker run --name hsbc-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=tradingdb2020 -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -d mysql
+
+
+docker run --name danske-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=danskeproddb -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -d mysql
+
+docker run --name hsbc-mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=tradingdb2020 -e MYSQL_USER=demo_user -e MYSQL_PASSWORD=demo_pass -d mysql
+
+docker pull postgres
+
+docker run --name postgrescliq -e POSTGRES_PASSWORD=postgres -d postgres
+
+docker run --name rediscliq -d redis
+
+check the log
+docker logs demo-mysql
+running log
+docker logs -f demo-mysql
+
+remove the container
+
+docker rm containerid
+
+stop the container
+docker stop containerid
+
+restart the container
+docker restart containerid
+
+
+
+
+
+testing......
+docker exec -it demo-mysql mysql -u demo_user -p
+docker exec -it boa-mysql mysql -u root -p
+docker exec -it pwc-mysql mysql -u root -p
+
+>show databases;
+use vertxbooks;
+show tables;
+create table books(isbn int primary key, title varchar(100));
+
+docker exec -it cgi-mysql mysql -u root -p
+
+docker exec -it es-mysql mysql -u root -p
+docker exec -it boa-mysql mysql -u root -p
+docker exec -it data-mysql mysql -u root -p
+docker exec -it virtusa-mysql mysql -u root -p
+                container name image name
+docker exec -it   boa-mysql     mysql      -u root  -p
+docker exec -it   hsbc-mysql     mysql      -u root  -p
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Testing!123" \
+   -p 1408:1433 --name sql1 -h sql1 \
+   -d microsoft/mssql-server-linux
+docker exec -it sql1 /opt/mssql-tools/bin/sqlcmd -U sa -P Testing!123
+docker exec -it dt-mssql "bash"
+docker exec -it dotnet-vault_db_1 "bash"
+docker exec -it postgrescliq psql -U postgres
+
+/opt/mssql-tools/bin/sqlcmd -S localhost -U SA 
+
+get password:<type password>
+
+select name from sys.databases;
+GO
+
+
+
+
+
+
+to show databases
+
+
+
+
+\l
+;
+create database webstoredb;
+
+to switch the db
+ \c webstoredb
+
+to list the tables
+\dt
+
+
+exit
+
+
+
+
+
+
+/opt/mssql-tools/bin/sqlcmd -S localhost -U SA
+
+/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "Vignesh@95"
+
+SELECT name, database_id, create_date FROM sys.databases;
+GO
+  
+
+docker exec -it   danske-mysql     mysql      -u root  -p
+
+
+create database use root credentials when container running
+
+step 2
+
+create docker file
+FROM java:8
+LABEL maintainer=“chathuranga.t@gmail.com”
+VOLUME /tmp
+EXPOSE 8080
+ADD target/spring-boot-data-jpa-example-0.0.1-SNAPSHOT.jar spring-boot-data-jpa-example-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","spring-boot-data-jpa-example-0.0.1-SNAPSHOT.jar"]
+
+step 3
+
+//must after changing db url
+mvn clean install -DskipTests 
+
+
+step 4
+
+docker build -f dockerfile -t customerapp .
+
+
+or
+------------------------------
+sample docker file
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ARG JAR_FILE
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
+-----------------------------------------
+docker build --build-args=build/libs/*.jar -t myorg/myapp .
+
+or
+docker build -t globalins .
+
+step 6
+
+docker images
+
+step 7
+docker ps
+
+
+      
+step 8
+ docker run -h 192.168.99.101 -p 7070:7070 --name visa-app -d usvisaprocessapp:latest
+#container
+              6062:6060 
+              docker level port:internal port 
+docker run -p 6060:6060 --name virtusa-c1 
+--link virtusa-mysql:mysql -d rmapp:latest
+
+docker run -p 6060:6060 --name pwc-c1 --link pwc-mysql:mysql -d customerapp:latest
+
+
+docker run -p 7070:7070 --name es-c1 --link es-mysql:mysql -d productapp:latest
+
+
+docker run -p 7070:7070 --name boa-c1 --link boa-mysql:mysql -d customerapp:latest
+
+docker run -p 7076:7070 --name boa-c2 --link boa-mysql:mysql -d customerapp:latest
+
+
+docker run -p 8888:8888 --name amex-c1 --link 
+   boa-mysql:mysql -d booksapp:latest
+
+docker run -p 7070:7070 --name boa-upload-c1 
+--link boa-mysql:mysql -d uploadapp:latest
+
+docker run -p 7070:7070 --name boa-upload-c101 
+--link boa-mysql:mysql -d uploadapp:latest
+docker run -p 7072:7070 --name boa-upload-c102 
+--link boa-mysql:mysql -d uploadapp:latest
+docker run -p 7074:7070 --name boa-upload-c103 
+--link boa-mysql:mysql -d uploadapp:latest
+
+
+docker run -p 7072:7070 --name boa-upload-c2 
+--link boa-mysql:mysql -d uploadapp:latest
+
+docker run -p 7070:7070 --name danske-loanapp-c1 --link danske-mysql:mysql -d  danskeloanapp:latest
+
+docker run -p 7072:7070 --name danske-loanapp-c2 --link danske-mysql:mysql -d  danskeloanapp:latest
+
+docker run -p 7074:7070 --name danske-loanapp-c3 --link danske-mysql:mysql -d  danskeloanapp:latest
+
+docker run -p 7070:7070 --name webstoreapp-c1 --link postgrescliq:postgres -d  webstoreappv1:latest
+
+docker run -p 7070:7070 --name webstoreapp-c1 --link postgrescliq:postgres --link rediscliq:redis -d  webstoreappv1:latest
+
+
+port forwarding ---> 6060 --> 6060,6062
+docker run -p 6060:6060 --name crm-c1 -d crmapp1:latest
+docker run -p 6062:6060 --name crm-c2 -d crmapp1:latest
+docker run -p 6064:6060 --name crm-c3 -d crmapp1:latest
+
+docker run -p 7070:8070 --name appointment-c1 
+--link virtusa-mysql:mysql -d appointmentapp:latest
+
+docker run -p 7072:8070 --name appointment-c2 
+--link virtusa-mysql:mysql -d appointmentapp:latest
+
+
+
+docker run -p 7078:7078 --name hsbc-c1 
+--link hsbc-mysql:mysql -d currencyapiapp:latest
+
+docker run -p 7078:7078 --name hsbc-c3 
+--link hsbc-mysql:mysql -d counterpartytestapi:latest
+docker run -p 7080:7078 --name hsbc-c4 
+--link hsbc-mysql:mysql -d counterpartytestapi:latest
+
+docker run -p 7070:7070 --name boawk3-c1 
+--link boa-mysql:mysql -d boawk3customerapp:latest
+
+docker run -p 7072:7070 --name boawk3-c2 
+--link boa-mysql:mysql -d boawk3customerapp:latest
+
+
+ docker run -h 192.168.99.101 -p 7070:7070 --name boa-visa-app -d boausvisaapp:latest
+                                                 container name
+docker run -h 192.168.99.100 -p 6060:6060 --name demo-app 
+--link demo-mysql:mysql -d globalins
+
+docker run -h 192.168.99.100 -p 6060:6060 --name es-ins-app
+--link es-mysql:mysql -d es-insapp2019
+
+docker run -h 192.168.99.100 -p 7070:7070 --name es-customer-app-c1
+--link es-mysql:mysql -d escustomerserviceapp2020:latest
+
+//creating container for java application
+docker run -h 192.168.99.100 -p 7070:7070 --name dt-claim-app-c1
+--link data-mysql:mysql -d datamaticsclaimappimage:latest
+
+http://192.168.99.100:7070/addcustomer
+
+docker run -h 192.168.99.100 -p 7072:7070 --name dt-claim-app-c2
+--link data-mysql:mysql -d datamaticsclaimappimage:latest
+
+docker run -h 192.168.99.100 -p 7074:7070 --name dt-claim-app-c3
+--link data-mysql:mysql -d datamaticsclaimappimage:latest
+
+docker run  -p 8070:8070 --name appointment-c1
+--link virtusa-mysql:mysql -d appointmentapp:latest
+
+docker run -h 192.168.99.100 -p 8072:8070 --name appointment-c2
+--link virtusa-mysql:mysql -d appointmentapp:latest
+
+docker run -p 7070:7070 --name boa-c1
+--link boa-mysql:mysql -d customerboaapp:latest
+
+docker run  --name payrolldocker-c2 -p 5000:80 -d payrolldockerapi:dev
+
+docker run -h 192.168.99.100 -p 8074:8070 --name appointment-c3
+--link virtusa-mysql:mysql -d appointmentapp:latest
+
+docker run -h 192.168.99.103 -p 7070:7070 --name virtusa-customer-app-c1
+--link virtusa-mysql:mysql -d customerserviceapp:latest
+
+
+docker run -p 7070:7070 --name cgi-upload-app-c1
+--link cgi-mysql:mysql -d upload-app:latest
+
+docker run -p 7072:7070 --name cgi-upload-app-c2
+--link cgi-mysql:mysql -d upload-app:latest
+
+docker run -d -h 192.168.99.100 -p 8761:8761 eurekaserver:latest
+
+docker run -d -h 192.168.99.100 -p 8888:8888 -e SPRING_CLOUD_CONFIG_SERVER_GIT_URI=https://github.com/eswaribala/rps_test_2019.git configserver:latest 
+
+http://192.168.99.100:8888/virtusa-mysql-docker-development.properties
+
+                                 ext   int (docker file expose)
+ docker run -h 192.168.99.100 -p 7080:7080  -e "SPRING_PROFILES_ACTIVE=development" --name virtusa-us-customer-app --link virtusa-mysql:mysql  --link funny_borg:eurekaserver --link distracted_northcutt:configserver -d customerusapp:latest 
+
+docker run -h 192.168.99.100 -p 7082:7080  -e "SPRING_PROFILES_ACTIVE=development" --name virtusa-us-customer-app1 --link virtusa-mysql:mysql  --link funny_borg:eurekaserver --link distracted_northcutt:configserver -d customerusapp:latest 
+
+
+
+docker run -h 192.168.99.100 -p 7080:7080  -e "SPRING_PROFILES_ACTIVE=development" --name virtusa-us-customer-app --link virtusa-mysql:mysql  --link distracted_hawking:eurekaserver --link flamboyant_brown:configserver -d customerusapp:latest
+
+
+
+
+docker run -h 192.168.99.100 -p 7074:7070 --name dt-claim-app-c1
+--link data-mysql:mysql -d datamaticsclaimappimage:latest
+
+
+
+docker run -h 192.168.99.100 -p 7076:6060 --name es-ins-app-c111
+--link es-mysql:mysql -d eswaribala/dockerinsappdec2019:tag1
+
+docker run -h 192.168.99.100 -p 7070:7070 --name es-customer-c1 --link es-mysql:mysql -d escustomerserviceapp2020:latest
+
+docker run -h 192.168.99.100 -p 7072:6060 --name es-ins-app-c1
+--link es-mysql:mysql -d es-insapp2019
+
+docker run -h 192.168.99.100 -p 6060:6060 --name ins-app 
+--link demo-mysql:mysql -d ins-jpa-app
+
+        mysql container name:mysql image name     app image name     
+docker run -h 192.168.99.100 -p 7070:6060 --name test-app 
+--link demo-mysql:mysql -d spring-jpa-app
+
+docker run -h 192.168.99.100 -p 7070:7070 --name kycprocess-app 
+--link boa-mysql:mysql -d kycprocess
+
+
+docker run -h 192.168.99.100 -p 7090:6060 --name container-app 
+--link demo-mysql:mysql -d kycmumbai-app
+
+
+docker run -h 192.168.99.100 -p 6070:6070 --name ldap-container-app 
+--link demo-mysql:mysql -d ldap2019-app
+
+
+docker run -h 192.168.99.103 -p 9200:9200 -p 9300:9300 --name elastic-container-app 
+-d docker.elastic.co/elasticsearch/elasticsearch:7.7.1
+
+
+
+
+docker run -h 192.168.99.100 -p 8761:8761 --name eurekacontainer-app -d eureka-app:latest
+
+docker run -h 192.168.99.100 -p 8761:8761 --name eurekacontainer2019-app -d eureka2019-app:latest
+
+
+docker-compose up
+docker-compose down
+===============================================
+inspecting docker images
+docker image inspect 932eeab5e058
+---------------------------------------------------
+Inspect docker containers
+docker container inspect cd23b069942a 
+------------------------------------------
+Port forwarding taken care by external port
+-----------------------------------------------
+Data Volume
+Method 1
+
+docker container run -it --tty ubuntu /bin/bash
+
+docker container run -it -v/udata --tty ubuntu /bin/bash
+
+cd udata
+touch file1.txt
+exit
+docker container restart 2eec01eb7368
+docker attach 2eec01eb7368
+exit
+docker container rm 2eec01eb7368
+docker volume ls
+
+Method 2
+Docker file sharing
+docker container run -it -v e:/DockerFileShare/project/web01:/mnt/test ubuntu /bin/bash
+
+docker container run -it -v E:/dockerfilesharing/project/web01:/mnt/dotnetshare ubuntu /bin/bash
+
+Method 3
+
+data volume container for data sharing
+docker run -it -v /data --name container1 busybox
+
+cd data
+touch file1.txt
+touch file2.txt
+let it be running
+open another terminal
+docker exec container1 ls /data
+
+launch another container
+docker run -it --volumes-from container1 --name container2 busybox
+
+#Read only
+docker run -ti --name=Container6 --volumes-from Container4:ro ubuntu
+
+
+copy specific folder / file
+
+***** compose level possible (exclude or include)
+
+Method 4
+
+docker volume create rmdatavol
+docker volume create mssqlvol
+docker volume ls
+
+docker volume inspect mssqlvol
+docker volume rm my-vol
+
+Attach volume to container
+
+docker run -it -v /mssqlvol --name msb1 busybox
+***d->detached****
+docker run -d -v /mssqlvol --name msb2 busybox
+
+docker run -it -p 8074:8070 -v/data --name appointment-c3
+--link virtusa-mysql:mysql appointmentapp:latest
+docker container inspect e350ffad6d4c
+can check volume name
+
+
+docker volume create my-vol
+docker volume ls
+
+docker volume inspect my-vol
+[
+    {
+        "Driver": "local",
+        "Labels": {},
+        "Mountpoint": "/var/lib/docker/volumes/my-vol/_data",
+        "Name": "my-vol",
+        "Options": {},
+        "Scope": "local"
+    }
+]
+--------------------------
+docker volume rm my-vol
+--------------------------------------------------------------
+-----------------------------------------------------
+docker network
+docker network ls
+docker network inspect host
+
+docker run my_container --net=my_network
+
+
+docker network inspect bridge
+
+create our own network
+
+docker network create --driver bridge my_isolated_bridge_network
+docker network create --driver bridge virtusa_network
+docker network inspect my_isolated_bridge_network
+docker network ls
+docker run --net=my_isolated_bridge_network --name=my_psql_db postgres
+docker run –it -–network=my_isolated_bridge_network ubuntu:latest /bin/bash 
+docker network inspect my_isolated_bridge_network
+
+
+
+
+
+
+
+===============================================================
+
+Step 9
+docker hub
+https://hub.docker.com/
+username:dockerid - not mail id -- eswaribala
+password:*****
+------------------------------------------------
+           image name            docker id  repo    tagname     
+
+docker tag bankingdockerdemo:dev eswaribala/dtrepo:latest
+docker push eswaribala/dtrepo:latest
+
+docker tag shoppingdenproductapi:dev eswaribala/rpsallsecrepo:latest
+docker push eswaribala/rpsallsecrepo:latest
+
+
+
+docker tag dockersampling:latest eswaribala/rpsdockertraining:v1
+docker push eswaribala/rpsdockertraining:v1
+
+docker tag rmapp:latest eswaribala/virtusausoct2020:v1
+docker push eswaribala/virtusausoct2020:v1
+
+
+
+
+docker tag datamaticsclaimappimage:latest eswaribala/datamaticsrepo:v1
+docker tag appointmentapp:latest eswaribala/practicelab2020:v1
+docker push eswaribala/practicelab2020:v1
+
+docker tag boawk3customerapp:latest eswaribala/boawk3repo:v1
+
+docker push eswaribala/boawk3repo:v1
+
+
+
+docker tag ubuntu:latest eswaribala/citirepo:v1
+docker push eswaribala/citirepo:v1
+
+docker tag customerboaapp:latest eswaribala/rpsboarepo2020:v1
+docker push eswaribala/rpsboarepo2020:v1
+
+
+
+
+
+docker pull eswaribala/citirepo:v1
+
+docker container run -it -v/udata --tty eswaribala/citirepo:v1
+
+
+docker tag practicelabapp:latest eswaribala/practicelabmay2020:v1
+docker push  eswaribala/practicelabmay2020:v1
+
+docker tag customerapp:latest eswaribala/practicelab:v1
+docker push  eswaribala/practicelab:v1
+========================================================
+kubectl get all
+--------------------------------------------------
+goto apppointmenntdocker project in f:\virtusausjune
+ kubectl apply -f mysql-pv.yaml
+kubectl apply -f mysql-deployment.yaml
+kubectl get all
+kubectl get services
+kubectl describe deployment mysql
+kubectl get pods -l app=mysql
+kubectl describe pvc mysql-pv-claim
+kubectl logs mysql-78dc9c6b94-vfgtq
+kubectl get services
+get ipaddress
+kubectl run -it --rm --image=mysql --restart=Never mysql-client -- mysql -h mysql -ppassword
+create database virtusausappointmentdb;
+show databases;
+=========================================================
+Creating the secrets
+kubectl create secret generic mysql-root-pass --from-literal=password=password
+
+kubectl create secret generic mysql-user-pass --from-literal=username=demo_user --from-literal=password=demo_pass
+
+kubectl create secret generic mysql-db-url --from-literal=database=virtusausappointmentdb --from-literal=url='jdbc:mysql://mysql:3306/virtusausappointmentdb?useSSL=false
+
+kubectl get secrets
+kubectl describe secrets mysql-user-pass
+kubectl get persistentvolumes
+
+=======================================================
+kubectl create deployment demo --image=appointmentapp/v1 --dry-run -o=yaml > deployment.yaml
+==========================================================
+kubectl create service clusterip demo --tcp=8070:8070 --dry-run -o=yaml >> deployment.yaml
+==========================================================
+kubectl apply -f deployment.yaml
+==========================================================
+kubectl delete svc demo
+
+
+
+
+docker push eswaribala/datamaticsrepo:v1
+
+stage 1
+docker tag customerappos:latest eswaribala/customerrepo:v1
+
+stage 2
+docker push eswaribala/customerrepo:v1
+
+
+
+
+
+docker tag bankingdockerapp:latest eswaribala/rpscgimsrepo:v1
+
+docker tag globalins eswaribala/globalinsorepo:v1
+docker tag ins-jpa-app eswaribala/esinsapprepo:v1
+
+docker tag es-insapp2019:latest eswaribala/dockerinsappdec2019:tag1
+
+docker tag insapp-os-img:latest eswaribala/insapp-os-repo:latest
+
+docker push eswaribala/insapp-os-repo:latest
+
+docker push eswaribala/rpsfdrepo:v1 
+
+docker push eswaribala/rpscgimsrepo:v1
+
+docker push eswaribala/globalinsorepo:v1
+
+docker push eswaribala/dockerinsappdec2019:tag1
+--------------------------------------------------------------
+oc new-app eswaribala/insapp-os-repo:latest --name=es-ins-os-app
+
+http://ins-insurance-app-openshift.apps.us-east-2.starter.openshift-online.com/browser/index.html#/
+----------------------------------------------------------
+
+
+Open a terminal window.
+
+Sign into your Azure account with the Azure CLI by typing az login
+
+Create an Azure service principal by typing az ad sp create-for-rbac --name "uuuuuuuu" --password "pppppppp" (uuuuuuuu is the user name and pppppppp is the password for the service principal).
+
+Azure should print out a JSON response resembling this:
+
+
+{
+   "appId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+   "displayName": "uuuuuuuu",
+   "name": "http://uuuuuuuu",
+   "password": "pppppppp",
+   "tenant": "tttttttt-tttt-tttt-tttt-tttttttttttt"
+}
+
+Configure Maven to use your Azure service principal
+In this section, you will configure Maven to authenticate using your Azure service principal for web app deployment.
+
+Open your Maven settings.xml file in a text editor (usually found at either /etc/maven/settings.xml or $HOME/.m2/settings.xml).
+
+Add your Azure service principal settings from the previous section of this tutorial to the <servers> collection in the settings.xml file as shown below:
+
+<servers>
+   <server>
+     <id>azure-auth</id>
+      <configuration>
+         <client>aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa</client>
+         <tenant>tttttttt-tttt-tttt-tttt-tttttttttttt</tenant>
+         <key>pppppppp</key>
+         <environment>AZURE</environment>
+      </configuration>
+   </server>
+</servers>
+Save and close the settings.xml file.
+
+./mvnw azure-webapp:deploy
+------------------------------------------------------
+
+
