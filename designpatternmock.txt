@@ -1,0 +1,247 @@
+Q1.Which pattern is most appropriate when a decision must be made at the time a class is instantiated?
+
+a.Bridge
+b.Composite
+c.Factory Method
+d.Command
+
+
+=====================================================
+Q2.You want to create families of related objects, to be used interchangeably to configure you application. What is
+the most appropriate GoF pattern to use?
+
+a.Chain of Responsibility
+b.Abstract Factory
+c.Builder
+d.Observer
+
+
+=========================================================
+Q3.It is also known as Virtual Constructor and it is used to define an interface for creating an object
+but letting the subclass decide which class to instantiate, this pattern is :
+a.Builder
+b.Abstract Factory
+c.Prototype
+d.Factory Method
+
+---------------------------------------------------
+Q4.You want all the clients using class A to use the same instance of class A, what should you do to achieve this
+goal?
+
+a.mark class A final
+b.mark class A abstract
+c.apply the Singleton pattern to class A
+d.apply the Memento pattern to class A
+
+
+=========================================================
+Q5.Which of the following are participants in the GOF abstract factory design pattern ?
+
+a.Factory methods
+b.Factory constructors
+c.Abstract factory
+d.Abstract product
+e.Concrete factory
+
+
+
+========================================================
+Q6.When would you use the GOF abstract factory pattern?
+
+a.To design a structure which has a uniform interface for both compositions of objects and individual objects.
+b.To ensure that a certain group of related objects are used together
+c.The client which uses your design is not dependent on how the object are created or connected together
+d.To decouple the creation of objects from their usage
+
+Answer:b,c and d
+=====================================================
+Q7.What are the consequences of applying the abstract factory patter?
+
+a. it will be much easier to introduce new family of products
+b. it makes it easier for a certain family of objects to work together
+c. it makes it easier for the client to deal with tree-structured data
+d. it makes the designed product families exchangeable
+
+-------------------------------------------------------------
+Q8.Which design pattern you would you use to decouple the creation procedure of a complex object from it's concrete
+instance to be able to apply that procedure on variety of implementations.
+
+a.Factory builder design pattern
+b.Method Builder design pattern
+c.Builder design pattern
+d.Factory method design pattern
+
+-------------------------------------------------------
+Q9.What would lead you to apply the builder design pattern?
+
+a.To abstract steps of construction of objects so that different implementations
+b.To apply the same object construction procedure on variety of representations
+c.To translates one interface for a class into a compatible interface
+To restrict instantiation of a class to one object
+
+
+---------------------------------------------------------
+Q10.Which of the following are participants in the GOF builder design pattern?
+
+a. Builder interface
+b. Constructor Interface
+c. Director Interface
+d. Concrete Builder class
+e. Concrete constructor class
+
+--------------------------------------------------------------------
+Q11.Big portion of clients are remotely invoking methods in your system, the surface area exposed to clients includes
+fine-grained methods, which of course causes network overhead.
+Which pattern would improve your system performance in this case?
+
+a.Chain of Responsibility Pattern
+b.Facade Pattern
+c.Command Pattern
+d. Adapter Pattern
+
+
+------------------------------------------------------------------
+Q12.It is a pattern used to minimize memory use by letting similar objects share as much data as possible stored in a
+sharable object.
+
+a.Flyweight
+b.Composite
+c.Iterator
+d. Momento
+
+
+--------------------------------------------------------------------
+Q13.Which pattern is utilized in this example ?
+Every character object in a word document has data about the graphical representation and the position, but to
+avoid redundant graphical representation data for objects to the same character, it is advisable to extract out
+these representation data to one shared object between these objects, and store only the position of each
+character internally in each object.
+
+a.Abstract Factory
+b.Method Factory
+c.Builder
+d.Flyweight
+
+
+-----------------------------------------------------------------
+Q14.How you would model the company products hierarchy (Publications, Media)?
+
+a.Use composite design pattern to enable the publication and media hierarchies to be treated in the same way
+as a single instance of an object.
+b.Use the adapter design pattern to translates publication interface into a compatible media interface.
+c.Use bridge design pattern to build separate hierarchies for the publications and the media, to decouple the
+abstraction from its implementation so that the two can vary independently
+
+---------------------------------------------------------------
+Q15.Which design pattern you would you use to decouple an abstraction from its implementation so that the two can
+vary independently?
+
+a.Adapter design pattern
+b.bridge design pattern
+c.Facade design pattern
+d.Composite bridge design pattern
+
+
+
+-----------------------------------------------------
+Q16.Which design pattern you would you use to arrange object hierarchies such that the client code can access both
+the individual objects and compositions in a uniform manner ?
+
+a.Adapter design pattern
+b.Composite design pattern
+c.Composite adapter design pattern
+d.Composite factory design pattern
+
+-------------------------------------------------------------
+Q17.What are the consequences of applying the GOF Bridge pattern?
+
+a.it makes implementing the client code easier by interacting with a single uniform interface
+b.it decouples an abstraction from its implementation so that the two can vary independently
+c.it will decrease the system extesibility
+the client code can traverse tree structures of arbitrary depth recursively
+
+
+-----------------------------------------------------------------
+Q18.What are the consequences of applying the GOF Decorator pattern?
+
+a.it makes the client code easier by interacting with a single uniform interface
+b.the client code can traverse tree structures of arbitrary depth recursively
+c.it will will not alter the class inheritance hierarchy to accommodate for the additional functionality
+d.it allows to nest layers of decorators to add more functionality
+
+
+-------------------------------------------------------
+19.Encapsulate a request as an object, thereby letting you parametrize clients with different requests, queue or log requests, and support the undoable operation
+
+ a.Decorator
+ b.Command 
+ c.Adapter
+ Composite
+
+
+============================================================
+20 
+
+Attach additional responsibilities to an object dynamically. It provides a flexible alternative to subclassing for extending functionality.
+
+a. Chain of responsibility
+b. Adapter
+c. Decorator 
+d. Composite
+
+
+
+==========================================================
+21
+Which of the following describes the Builder pattern correctly?
+
+a. This pattern is used when creation of object directly is costly
+b. This pattern builds a complex object using simple objects and using a step by step approach. 
+c. This pattern is used when we need to decouple an abstraction from its implementation so that the two can vary independently.
+d. This pattern refers to creating duplicate object while keeping performance in mind. 
+
+
+-------------------------------------------------------------------
+22
+
+——– design pattern defines one-to-many dependency between objects
+
+a. Factory Pattern
+b. Facade pattern
+c. Observer pattern 
+d. Singleton pattern
+
+--------------------------------------------------------------
+23 
+
+In which of the following pattern, a class behavior or its algorithm can be changed at run time.
+
+a. State Pattern
+b. Template Pattern
+c.  Null Object Pattern
+d. Strategy Pattern 
+
+
+--------------------------------------------------------------------
+24 
+
+Define an interface for creating an object, but let the subclasses decide which class to instantiate. It let the instantiation differ from subclasses.
+
+a. Builder
+b. Abstract Factory
+c. Prototype
+d. Factory Method 
+
+
+------------------------------------------------------
+25 
+
+Which design pattern ensures that only one object of a particular class gets created?
+
+ a.State pattern
+ b.Singleton pattern 
+ c.Filter pattern
+ d. Bridge pattern
+
+
+---------------------------------------------------------------------
